@@ -1,11 +1,13 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestProject
 {
+    [SuppressMessage("NUnit.Analyzers", "NUnit1032:FieldIsNotDisposed", Justification = "driver.Quit() is used for disposal.")]
     public class Tests
     {
-        WebDriver driver;
+        IWebDriver driver;
         By username = By.Id("user-name");
         By password = By.CssSelector("[placeholder=\"Password\"]");
         By loginButton = By.Id("login-button");

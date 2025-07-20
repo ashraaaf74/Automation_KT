@@ -2,14 +2,18 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TestProject
 {
+    [SuppressMessage("NUnit.Analyzers", "NUnit1032:FieldIsNotDisposed", Justification = "driver.Quit() is used for disposal.")]
     public class Test2
     {
-        WebDriver driver;
+        IWebDriver driver;
         WebDriverWait wait;
-        [Test]
+
+
+         [Test]
         public void implicitWait()
         {
             driver = new ChromeDriver();
